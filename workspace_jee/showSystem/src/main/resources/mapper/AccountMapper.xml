@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- mybatis数据操作框架 -->
+<mapper namespace="com.wwj.showSystem.mapper.AccountMapper">
+	<!-- 建立映射的结果 （自己定义）-->
+	<resultMap type="com.wwj.showSystem.bo.Account" id="BO_Account">
+			<id  property="idNum"  column="student_ID"/>
+			<result property="name" column="name"/>
+	</resultMap>
+	
+	<select id="selectAccount"  resultMap="BO_Account">
+		SELECT * FROM
+		cj_info
+		WHERE cj_info.student_ID = #{idNum} AND cj_info.`name` = #{name}
+	</select>
+</mapper>
